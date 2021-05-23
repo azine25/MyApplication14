@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment {
                 tir = position;
                 FromFragment fr = new FromFragment();
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("fa", model);
+                bundle.putSerializable("azine", model);
                 fr.setArguments(bundle);
                 fm.beginTransaction().replace(R.id.fm_fl, fr).addToBackStack(null).commit();
 
@@ -58,13 +58,13 @@ public class HomeFragment extends Fragment {
             mainActivity.   hideBottomNav();
         });
 
-        fm.setFragmentResultListener("res", this, (requestKey, result) -> {
+        fm.setFragmentResultListener("yes", this, (requestKey, result) -> {
             Model model;
-            if (result.getSerializable("update") != null) {
-                model = (Model) result.getSerializable("update");
+            if (result.getSerializable("look") != null) {
+                model = (Model) result.getSerializable("look");
                 home_adapter.update(model, tir);
             } else {
-                model = (Model) result.getSerializable("add");
+                model = (Model) result.getSerializable("no");
                home_adapter.adds(model);
             }
         });

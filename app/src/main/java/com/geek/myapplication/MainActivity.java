@@ -27,17 +27,22 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager fm = getSupportFragmentManager();
 
     private BottomNavigationView.OnNavigationItemSelectedListener listener = item -> {
-                switch (item.getItemId()) {
+
+        switch (item.getItemId()) {
                     case R.id.home_fragment:
                         fm.beginTransaction().hide(active).show(homeFragment).commit();
+                        getSupportActionBar().setTitle("Home Fragment");
                         active = homeFragment;
                         return true;
                     case R.id.dashboard_fragment:
                         fm.beginTransaction().hide(active).show(dashFragment).commit();
                         active = dashFragment;
+                        getSupportActionBar().setTitle("Dash Fragment");
+
                         return true;
                     case R.id.notification_fragment:
                         fm.beginTransaction().hide(active).show(notificationFragment).commit();
+                        getSupportActionBar().setTitle("Not Fragment");
                         active = notificationFragment;
                         return true;
                 }

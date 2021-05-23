@@ -29,7 +29,7 @@ public class FromFragment extends Fragment {
         fm = getActivity().getSupportFragmentManager();
         mainActivity = (MainActivity) requireActivity();
         if (getArguments() != null) {
-            model = (Model) getArguments().getSerializable("fa");
+            model = (Model) getArguments().getSerializable("azine");
         }
     }
 
@@ -56,13 +56,13 @@ public class FromFragment extends Fragment {
                 if (model != null) {
                     model.setName(name);
                     model.setPhone(phoneNum);
-                    bundle.putSerializable("update", model);
+                    bundle.putSerializable("look", model);
                 } else {
                     model = new Model(name, phoneNum);
-                    bundle.putSerializable("add", model);
+                    bundle.putSerializable("no", model);
                 }
                 mainActivity.hide_Visible();
-                fm.setFragmentResult("res", bundle);
+                fm.setFragmentResult("yes", bundle);
                 fm.popBackStack();
             }
         });
